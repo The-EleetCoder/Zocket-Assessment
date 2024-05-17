@@ -105,7 +105,7 @@ export default class CanvasHandler {
       templateData.caption.text_color,
       templateData.caption.max_characters_per_line *
         templateData.caption.font_size *
-        0.6
+        0.5
     );
     this.drawText(
       templateData.cta.text,
