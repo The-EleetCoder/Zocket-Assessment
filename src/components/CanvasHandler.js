@@ -62,7 +62,7 @@ export default class CanvasHandler {
     this.setBackgroundColor(
       templateData.backgroundColor || this.defaultBackgroundColor
     );
-    
+
     this.drawImage(
       templateData.urls.design_pattern,
       0,
@@ -70,7 +70,7 @@ export default class CanvasHandler {
       this.canvas.width,
       this.canvas.height
     );
-    
+
     if (userImage) {
       this.drawUserImage(
         userImage,
@@ -82,19 +82,19 @@ export default class CanvasHandler {
     } else {
       this.drawImage(
         templateData.urls.mask,
-        templateData.image_mask.x,
-        templateData.image_mask.y,
-        templateData.image_mask.width,
-        templateData.image_mask.height
+        0,
+        0,
+        this.canvas.width,
+        this.canvas.height
       );
     }
 
     this.drawImage(
       templateData.urls.stroke,
-      templateData.image_mask.x,
-      templateData.image_mask.y,
-      templateData.image_mask.width,
-      templateData.image_mask.height
+      0,
+      0,
+      this.canvas.width,
+      this.canvas.height
     );
 
     this.drawText(
