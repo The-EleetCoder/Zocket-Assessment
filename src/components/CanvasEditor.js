@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { AppContext } from "../context/Context";
 
 const CanvasEditor = () => {
-    
+  const { caption, cta, backgroundColor } = useContext(AppContext);
+
   const templateData = {
     caption: {
-      text: "caption",
+      text: caption,
       position: { x: 50, y: 50 },
       font_size: 44,
       text_color: "#FFFFFF",
@@ -12,7 +14,7 @@ const CanvasEditor = () => {
       alignment: "left",
     },
     cta: {
-      text: "cta",
+      text: cta,
       position: { x: 190, y: 320 },
       text_color: "#FFFFFF",
       background_color: "#000000",
@@ -25,7 +27,7 @@ const CanvasEditor = () => {
       design_pattern:
         "https://d273i1jagfl543.cloudfront.net/templates/global_temp_landscape_temp_10_Design_Pattern.png",
     },
-    backgroundColor: "#0369A1",
+    backgroundColor: backgroundColor,
   };
 
   return <div>CanvasEditor</div>;
