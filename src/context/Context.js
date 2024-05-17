@@ -9,7 +9,7 @@ export function AppContextProvider({ children }) {
   const [cta, setCta] = useState("Shop Now");
   const [backgroundColor, setBackgroundColor] = useState("#0369A1");
   const [userImage, setUserImage] = useState(null);
-
+  
   const value = {
     caption,
     setCaption,

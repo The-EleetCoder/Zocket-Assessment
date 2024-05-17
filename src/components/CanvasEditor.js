@@ -1,9 +1,11 @@
-import React, { useState, useContext, useRef } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import { AppContext } from "../context/Context";
+import CanvasHandler from "./CanvasHandler";
 
 const CanvasEditor = () => {
   const canvasRef = useRef(null);
-  const { caption, cta, backgroundColor } = useContext(AppContext);
+  const [canvasHandler, setCanvasHandler] = useState(null);
+  const { caption, cta, backgroundColor, userImage } = useContext(AppContext);
 
   const templateData = {
     caption: {
@@ -30,6 +32,19 @@ const CanvasEditor = () => {
     },
     backgroundColor: backgroundColor,
   };
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const handler = new CanvasHandler(canvas);
+    setCanvasHandler(handler);
+    handler.drawAllElements(templateData);
+  }, []);
+
+  useEffect(() => {
+    if (canvasHandler) {
+      canvasHandler.drawAllElements(templateData, userImage);
+    }
+  }, [caption, cta, backgroundColor, userImage]);
 
   return (
     <div>
