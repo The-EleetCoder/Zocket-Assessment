@@ -1,8 +1,13 @@
 function App() {
   return (
     <div className="wrapper">
-      <div>hello</div>
-      <div></div>
+      {/* left half */}
+      <div className="left-half">render the canvas here</div>
+
+      {/* right half */}
+      <div className="right-half">
+        
+      </div>
     </div>
   );
 }
