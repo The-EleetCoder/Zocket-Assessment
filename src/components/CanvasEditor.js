@@ -1,7 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import { AppContext } from "../context/Context";
 
 const CanvasEditor = () => {
+  const canvasRef = useRef(null);
   const { caption, cta, backgroundColor } = useContext(AppContext);
 
   const templateData = {
@@ -30,7 +31,16 @@ const CanvasEditor = () => {
     backgroundColor: backgroundColor,
   };
 
-  return <div>CanvasEditor</div>;
+  return (
+    <div>
+      <canvas
+        ref={canvasRef}
+        width="1080"
+        height="1080"
+        style={{ height: 400, width: 400 }}
+      />
+    </div>
+  );
 };
 
 export default CanvasEditor;

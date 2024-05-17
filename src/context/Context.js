@@ -8,6 +8,7 @@ export function AppContextProvider({ children }) {
   );
   const [cta, setCta] = useState("Shop Now");
   const [backgroundColor, setBackgroundColor] = useState("#0369A1");
+  const [userImage, setUserImage] = useState(null);
 
   const value = {
     caption,
@@ -16,6 +17,8 @@ export function AppContextProvider({ children }) {
     setBackgroundColor,
     cta,
     setCta,
+    userImage,
+    setUserImage
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

@@ -9,9 +9,24 @@ const EditingScreen = () => {
     setBackgroundColor,
     cta,
     setCta,
+    setUserImage,
   } = useContext(AppContext);
 
-  const handleImageUpload = () => {};
+  // function for handling image
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const img = new Image();
+        img.src = event.target.result;
+        img.onload = () => {
+          setUserImage(img);
+        };
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <div className="editing-screen">
