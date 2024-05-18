@@ -1,172 +1,193 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.wrapper{
-    display: flex;
-    height: 100vh;
-    /* width: 80vw; */
-    width: 100vw;
-    gap: 1em;
-    padding: 0.5em;
-    justify-content: center;
-    align-items: center;
-    /* background-color: blanchedalmond; */
+.wrapper {
+  display: flex;
+  height: 100vh;
+  width: 80vw;
+  gap: 2em;
+  padding: 0.5em;
+  justify-content: center;
+  align-items: center;
 }
 
-.left-half{
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* background-color: rgba(135, 94, 155, 0.121); */
-    height: 80%;
-    border-radius: 0.2em;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+.left-half {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  border-radius: 0.2em;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  background-image: url("../public/background-image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.canvas{
-    border-radius: 0.1em;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+.canvas {
+  border-radius: 0.1em;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 2px;
 }
 
-.right-half{
-    flex-grow: 1;
-    /* background-color: aquamarine; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80%;
-    user-select: none;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
+.right-half {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  user-select: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
 }
 
-.editing-screen{
-    display: flex;
-    flex-direction: column;
-    /* background-color: beige; */
-    height: 100%;
-    width: 100%;
-    padding: 1em;
-    /* justify-content: space-between; */
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    gap: 1em;
+.editing-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 1em;
+  gap: 1em;
 }
 
-.heading-text-div{
-    flex-grow: 1;
-    /* background-color: rgba(0, 0, 255, 0.442); */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5em;
+.heading-text-div {
+  height: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
 }
 
-.heading{
-    /* background: white; */
-    font-weight: 700;
-    font-size: large;
+.heading {
+  font-weight: 700;
+  font-size: large;
 }
 
-.tagline{
-    /* background-color: beige; */
-    color: rgba(0, 0, 0, 0.537);
-    font-size: small;
+.tagline {
+  color: rgba(0, 0, 0, 0.537);
+  font-size: small;
 }
 
-.upload-image-div{
-    /* flex-grow: 1; */
-    /* background-color: rgba(255, 0, 0, 0.425); */
-    display: flex;
-    align-items: center;
-    border: 2px solid rgba(186, 182, 182, 0.348);
-    padding: 0 1em;
-    border-radius: 0.3em;
-    height: 8%;
-    font-size: small;
-
+.upload-image-div {
+  display: flex;
+  align-items: center;
+  border: 2px solid rgba(186, 182, 182, 0.348);
+  padding: 0 1em;
+  border-radius: 0.3em;
+  height: 8%;
+  font-size: small;
 }
 
-.upload-image-text{
-    color: rgba(0, 0, 0, 0.537);
+.upload-image-text {
+  color: rgba(0, 0, 0, 0.537);
 }
 
-.select-file-link{
-    color: rgb(16, 146, 233);
+.select-file-link {
+  color: rgb(16, 146, 233);
 }
 
-.line-div{
-    /* flex-grow: 1; */
-    /* background-color: rgba(0, 0, 255, 0.442); */
-    height: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: end;
-    color: rgba(0, 0, 0, 0.537);
-    font-size: smaller;
+.line-div {
+  height: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  color: rgba(0, 0, 0, 0.537);
+  font-size: smaller;
 }
 
-.content-div{
-    /* flex-grow: 1; */
-    /* background-color: rgba(255, 0, 0, 0.425); */
-    display: flex;
-    flex-direction: column;
-    border: 2px solid rgba(186, 182, 182, 0.348);
-    padding: 0.2em 0.7em;
-    border-radius: 0.3em;
-    height: 9%;
-    font-size: small;
-    gap: .2em;
+.content-div {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(186, 182, 182, 0.348);
+  padding: 0.2em 0.7em;
+  border-radius: 0.3em;
+  height: 9%;
+  font-size: small;
+  gap: 0.2em;
 }
 
-.content-text{
-    font-size: smaller;
-    color: rgba(0, 0, 0, 0.537);
+.content-text {
+  font-size: smaller;
+  color: rgba(0, 0, 0, 0.537);
 }
 
-.content-input{
-    border: none;
-    font-size: small;
-    font-weight: bold;
+.content-input {
+  border: none;
+  font-size: small;
+  font-weight: bold;
 }
 
-.cta-div{
-    /* flex-grow: 1; */
-    display: flex;
-    flex-direction: column;
-    /* background-color: rgba(0, 0, 255, 0.442); */
-    border: 2px solid rgba(186, 182, 182, 0.348);
-    padding: 0.2em 0.7em;
-    border-radius: 0.3em;
-    height: 9%;
-    font-size: small;
-    gap: .2em;
+.cta-div {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(186, 182, 182, 0.348);
+  padding: 0.2em 0.7em;
+  border-radius: 0.3em;
+  height: 9%;
+  font-size: small;
+  gap: 0.2em;
 }
 
-.cta-text{
-    font-size: smaller;
-    color: rgba(0, 0, 0, 0.537);
+.cta-text {
+  font-size: smaller;
+  color: rgba(0, 0, 0, 0.537);
 }
 
-.cta-input{
-    border: none;
-    font-size: small;
-    font-weight: bold;
+.cta-input {
+  border: none;
+  font-size: small;
+  font-weight: bold;
 }
 
-.color-picker-div{
-    flex-grow: 1;
-    background-color: rgba(255, 0, 0, 0.425);
+.color-picker-div {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 0.5em;
+}
+
+.color-picker-text {
+  font-size: smaller;
+  color: rgba(0, 0, 0, 0.537);
+}
+
+.color-picker-buttons {
+  display: flex;
+  gap: 0.5em;
+}
+
+.color-button {
+  border: 1px solid rgba(169, 169, 169, 0.471);
+  border-radius: 1em;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.color-picker-add-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(169, 169, 169, 0.471);
+  border-radius: 1em;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.color-picker-popover {
+  position: absolute;
+  left: 11em;
+  top: -5em;
 }

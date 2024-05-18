@@ -128,7 +128,7 @@ const EditingScreen = () => {
 
       {/* color picker */}
       <div className="color-picker-div">
-        <label className="color-picker-text">Background Color</label>
+        <label className="color-picker-text">Choose your color</label>
         <div className="color-picker-buttons">
           {/* previous pickedColors */}
           {pickedColors.map((color, index) => (
