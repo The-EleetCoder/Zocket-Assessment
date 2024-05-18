@@ -31,7 +31,7 @@ export default class CanvasHandler {
     this.wrapText(text, x, y, maxWidth, fontSize);
   }
 
-  wrapText(text, x, y, maxWidth, lineHeight) {
+  splitTextIntoLines(text, maxWidth) {
     const words = text.split(" ");
     let line = "";
     let lines = [];
@@ -47,7 +47,11 @@ export default class CanvasHandler {
       }
     }
     lines.push(line.trim());
+    return lines;
+  }
 
+  wrapText(text, x, y, maxWidth, lineHeight) {
+    const lines = this.splitTextIntoLines(text, maxWidth);
     for (let i = 0; i < lines.length; i++) {
       this.context.fillText(lines[i], x, y);
       y += lineHeight;
@@ -56,6 +60,73 @@ export default class CanvasHandler {
 
   clearCanvas() {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  }
+
+  drawRoundedRect(x, y, width, height, radius, color) {
+    this.context.fillStyle = color;
+    this.context.beginPath();
+    this.context.moveTo(x + radius, y);
+    this.context.lineTo(x + width - radius, y);
+    this.context.quadraticCurveTo(x + width, y, x + width, y + radius);
+    this.context.lineTo(x + width, y + height - radius);
+    this.context.quadraticCurveTo(
+      x + width,
+      y + height,
+      x + width - radius,
+      y + height
+    );
+    this.context.lineTo(x + radius, y + height);
+    this.context.quadraticCurveTo(x, y + height, x, y + height - radius);
+    this.context.lineTo(x, y + radius);
+    this.context.quadraticCurveTo(x, y, x + radius, y);
+    this.context.closePath();
+    this.context.fill();
+  }
+
+  drawCenteredText(text, x, y, width, height, fontSize, color, maxWidth) {
+    this.context.font = `${fontSize}px Arial`;
+    this.context.fillStyle = color;
+    const lines = this.splitTextIntoLines(text, maxWidth);
+    let lineHeight = fontSize * 1.2;
+    let totalHeight = lines.length * lineHeight;
+    let startY = y + (height - totalHeight) / 2 + fontSize;
+
+    for (let i = 0; i < lines.length; i++) {
+      let lineWidth = this.context.measureText(lines[i]).width;
+      let startX = x + (width - lineWidth) / 2;
+      this.context.fillText(lines[i], startX, startY);
+      startY += lineHeight;
+    }
+  }
+
+  drawCTA(cta) {
+    const {
+      text,
+      position: { x, y },
+      font_size = 30,
+      text_color,
+      background_color,
+      wrap_length = 20,
+    } = cta;
+
+    const padding = 24;
+    const lineHeight = font_size * 1.2;
+    const maxWidth = wrap_length * font_size * 0.5;
+    const lines = this.splitTextIntoLines(text, maxWidth);
+    const textWidth = maxWidth + padding * 2;
+    const textHeight = lines.length * lineHeight + padding * 2;
+
+    this.drawRoundedRect(x, y, textWidth, textHeight, 20, background_color);
+    this.drawCenteredText(
+      text,
+      x + padding,
+      y + padding,
+      textWidth - padding * 2,
+      textHeight - padding * 2,
+      font_size,
+      text_color,
+      maxWidth
+    );
   }
 
   drawAllElements(templateData, userImage = null) {
@@ -100,14 +171,7 @@ export default class CanvasHandler {
                   templateData.caption.font_size *
                   0.5
               );
-              this.drawText(
-                templateData.cta.text,
-                templateData.cta.position.x,
-                templateData.cta.position.y,
-                30,
-                templateData.cta.text_color,
-                200
-              );
+              this.drawCTA(templateData.cta);
             }
           );
         } else {
@@ -137,14 +201,7 @@ export default class CanvasHandler {
                       templateData.caption.font_size *
                       0.5
                   );
-                  this.drawText(
-                    templateData.cta.text,
-                    templateData.cta.position.x,
-                    templateData.cta.position.y,
-                    30,
-                    templateData.cta.text_color,
-                    200
-                  );
+                  this.drawCTA(templateData.cta);
                 }
               );
             }
