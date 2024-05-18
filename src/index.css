@@ -130,6 +130,10 @@ body {
   font-weight: bold;
 }
 
+.content-input:focus{
+  outline: none;
+}
+
 .cta-div {
   display: flex;
   flex-direction: column;
@@ -150,6 +154,10 @@ body {
   border: none;
   font-size: small;
   font-weight: bold;
+}
+
+.cta-input:focus{
+  outline: none;
 }
 
 .color-picker-div {
