@@ -67,18 +67,33 @@ const EditingScreen = () => {
     <div className="editing-screen">
       {/* heading text */}
       <div className="heading-text-div">
-        <div>Ad Customization</div>
-        <div>Customize your ads and get the templates accordingly</div>
+        <div className="heading">Ad Customization</div>
+        <div className="tagline">
+          Customize your ads and get the templates accordingly
+        </div>
       </div>
 
       {/* image upload */}
       <div className="upload-image-div">
-        <label className="upload-image-text">Upload Image</label>
+        <label className="upload-image-text">
+          Change the ad creative image.
+          <a
+            href="#"
+            className="select-file-link"
+            onClick={() =>
+              document.getElementById("upload-image-input").click()
+            }
+          >
+            select file
+          </a>
+        </label>
         <input
           type="file"
+          id="upload-image-input"
           accept="image/*"
           onChange={handleImageUpload}
           className="upload-image-input"
+          style={{ display: "none" }}
         />
       </div>
 
@@ -104,7 +119,9 @@ const EditingScreen = () => {
         <input
           type="text"
           value={cta}
-          onChange={(e) => setCta(e.target.value)}
+          onChange={(e) => 
+          setCta(e.target.value
+          )}
           className="cta-input"
         />
       </div>

@@ -47,7 +47,7 @@ const CanvasEditor = () => {
   }, [caption, cta, backgroundColor, userImage]);
 
   return (
-    <div>
+    <div className="canvas">
       <canvas
         ref={canvasRef}
         width="1080"
