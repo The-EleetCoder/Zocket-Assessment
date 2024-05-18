@@ -2,7 +2,6 @@ import CanvasEditor from "./components/CanvasEditor";
 import EditingScreen from "./components/EditingScreen";
 
 function App() {
-  const handleImageUpload = () => {};
   return (
     <div className="wrapper">
       {/* left half */}
@@ -12,7 +11,7 @@ function App() {
 
       {/* right half */}
       <div className="right-half">
-        <EditingScreen/>
+        <EditingScreen />
       </div>
     </div>
   );

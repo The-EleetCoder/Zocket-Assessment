@@ -31,7 +31,7 @@ export function AppContextProvider({ children }) {
     userImage,
     setUserImage,
     pickedColors,
-    addPickedColor
+    addPickedColor,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

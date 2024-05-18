@@ -130,7 +130,7 @@ body {
   font-weight: bold;
 }
 
-.content-input:focus{
+.content-input:focus {
   outline: none;
 }
 
@@ -156,7 +156,7 @@ body {
   font-weight: bold;
 }
 
-.cta-input:focus{
+.cta-input:focus {
   outline: none;
 }
 
